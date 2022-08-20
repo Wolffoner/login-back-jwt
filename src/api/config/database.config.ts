@@ -1,6 +1,6 @@
 import mongoose from "mongoose";
 
-// TODO: Type database
+// TODO: Type database and remove logs
 class Database {
     private database;
 

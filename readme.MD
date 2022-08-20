@@ -10,6 +10,7 @@ Login implementation with JWT.
 - Write unit test && use TDD instead.
 - Write documentation of the code, could be TSDoc.
 - Create Docker image.
+- Implements logger.
 
 ## How to run
 

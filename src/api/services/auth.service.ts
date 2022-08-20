@@ -14,9 +14,10 @@ class AuthService {
     }
 
     verifyToken(token: string): JwtPayload {
-        const decodedToken = jwt.verify(token, 'secretkey');
+        const decodedToken = jwt.verify(token, process.env.JWT_SECRET || "secret");
         return decodedToken as JwtPayload;
     }
+
     async setToken(user: ServerUser): Promise<Token> {
         try {
             if (!user?.email || !user?.password) {
