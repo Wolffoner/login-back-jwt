@@ -2,16 +2,25 @@ import express from 'express';
 import cors from 'cors';
 import userRoutes from './api/routes/user.routes';
 import authRoutes from './api/routes/auth.routes';
+import database from './api/config/database.config';
 
-const app = express();
-app.use(express.json());
-app.use(cors());
 
-const PORT = 3000;
+const main = async () => {
+    const app = express();
+    app.use(express.json());
+    app.use(cors());
 
-app.use('api/v0', userRoutes);
-app.use('api/v0', authRoutes);
+    //TODO: .env file
+    const PORT = 3000;
 
-app.listen(PORT, () => {
-    console.log(`Server is running on port ${PORT}`);
-});
+    database.connect();
+
+    app.use('/api/v0', userRoutes);
+    app.use('/api/v0', authRoutes);
+
+    app.listen(PORT, () => {
+        console.log(`Server is running on port ${PORT}`);
+    });
+}
+
+main();

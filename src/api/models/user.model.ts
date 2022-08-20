@@ -1,3 +1,5 @@
+import { Role } from "./roles.enum";
+
 export interface ClientUser {
     id: string;
     avatar: string;
@@ -12,7 +14,5 @@ export interface ServerUser extends ClientUser {
     password: string;
 }
 
-enum Role {
-    ADMIN = 'admin',
-    USER = 'user'
-}
+
+
