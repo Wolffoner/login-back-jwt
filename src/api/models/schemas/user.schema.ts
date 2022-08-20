@@ -1,5 +1,5 @@
 import { Schema, model } from "mongoose";
-import { ServerUser } from "../user.model";
+import { ServerUser } from "../interfaces.ts/user.interface";
 
 const userSchema = new Schema<ServerUser>({
     id: {
@@ -37,13 +37,5 @@ const userSchema = new Schema<ServerUser>({
         required: false
     }
 });
-
-userSchema.methods.toJSON = function () {
-    let obj = this.toObject();
-    delete obj.password;
-    delete obj.__v;
-    delete obj._id;
-    return obj;
-}
 
 export const User = model<ServerUser>('User', userSchema);
