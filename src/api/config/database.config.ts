@@ -1,6 +1,6 @@
 import mongoose from "mongoose";
 
-
+// TODO: Type database
 class Database {
     private database;
 
@@ -8,9 +8,8 @@ class Database {
         this.database = mongoose;
     }
 
-    connect(): void {
-        //TODO: .env file
-        this.database.connect("mongodb+srv://wolffoner:Leandro20@login-drixit.7t4qisb.mongodb.net/?retryWrites=true&w=majority", {
+    connect(url: string): void {
+        this.database.connect(url, {
         }).then(() => {
             console.log("Database connected");
         }).catch(err => {
