@@ -1,5 +1,5 @@
 {
-  "name": "drixit-backend-login",
+  "name": "backend-login",
   "version": "1.0.0",
   "main": "main.ts",
   "scripts": {
